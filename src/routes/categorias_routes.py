@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from src.schemas.categorias_schema import CategoriaCreate, Categoria
-from src.crud.categorias_crud import CategoriasManager
+from src.controller.categorias_crud import CategoriasManager
 
 categoria_router = APIRouter()
 

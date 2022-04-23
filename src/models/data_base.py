@@ -4,6 +4,9 @@ from sqlalchemy.orm import sessionmaker
 
 
 class DataBaseHandler:
+    """ Decorator: que gerencia as conexoes do banco de dados
+    """
+
     def __init__(self):
         self._connection_string = "postgresql://postgres:hd2biwnm@127.0.0.1:5432/fast"
         self.session = None
@@ -22,8 +25,9 @@ class DataBaseHandler:
         :return: the object
         """
         engine = self.get_engine()
-        self.session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-        return self
+        session = sessionmaker()
+        self.session = session(autocommit=False, autoflush=False, bind=engine)
+        return self.session
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         """
@@ -36,5 +40,10 @@ class DataBaseHandler:
         self.session.close()
 
 
-Base = declarative_base()
+# Dependecy
+async def get_db():
+    with DataBaseHandler() as db:
+        yield db
 
+
+Base = declarative_base()
