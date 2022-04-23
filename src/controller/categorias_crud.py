@@ -1,7 +1,7 @@
-from src.models import models
+from src.models import categories
 
 from .base_crud import Manager
 
 
 class CategoriasManager(Manager):
-    models = models.Categoria
+    models = categories.Categoria

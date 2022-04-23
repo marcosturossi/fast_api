@@ -1,5 +1,5 @@
 from src.controller.base_crud import Manager
-from src.models.models import Book
+from src.models.books import Book
 from sqlalchemy.orm import Session
 
 
