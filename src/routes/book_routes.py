@@ -21,5 +21,10 @@ def create_book(book: BookCreate, db: Session = Depends(get_db)):
 
 @router.get('/book/{id}', response_model=Book)
 def get_book(id: int, db: Session = Depends(get_db)):
+    """
+    This route can get the book by id
+    :param id: id do livro
+    :return Book
+    """
     book = BookDetailController(db, id)
     return book.object
