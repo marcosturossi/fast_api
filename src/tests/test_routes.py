@@ -2,7 +2,6 @@ import json
 
 from fastapi.testclient import TestClient
 from main import app
-from src.controller.book_create import BookCreateController
 
 client = TestClient(app)
 

@@ -14,7 +14,7 @@ class Categoria(Base):
         return f"{self.nome}"
 
     def nome_id(self):
-        return f"{self.nome+self.id}"
+        return f"{self.nome+str(self.id)}"
 
 
 class Book(Base):

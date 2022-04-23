@@ -4,6 +4,9 @@ from sqlalchemy.orm import Session
 
 
 class BookDetailController(Manager):
+    """
+    This controller is responsable to get a book_by_id
+    """
     model = Book
 
     def __init__(self, db: Session, id: int):

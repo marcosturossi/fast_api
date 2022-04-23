@@ -42,6 +42,11 @@ class DataBaseHandler:
 
 # Dependecy
 async def get_db():
+    """
+    This method is responsable for open and close the
+    connections with database
+    :return: db
+    """
     with DataBaseHandler() as db:
         yield db
 
