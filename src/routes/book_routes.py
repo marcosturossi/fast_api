@@ -8,7 +8,7 @@ from src.models.data_base import get_db
 router = APIRouter()
 
 
-@router.post("/book/", response_model=Book)
+@router.post("/book/", status_code=201, response_model=Book)
 def create_book(book: BookCreate, db: Session = Depends(get_db)):
     """
     This route insert a new book into a system
