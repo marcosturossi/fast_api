@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from src.controller.book_create import BookManager
+from src.controller.book_create import BookCreateController
+from src.controller.book_detail import BookDetailController
 from src.schemas.book_schema import BookCreate, Book
 from src.models.data_base import get_db
 
@@ -14,5 +15,11 @@ def create_book(book: BookCreate, db: Session = Depends(get_db)):
     :param book:
     :return a book:
     """
-    book = BookManager(db, **book.dict())
+    book = BookCreateController(db, **book.dict())
+    return book.object
+
+
+@router.get('/book/{id}', response_model=Book)
+def get_book(id: int, db: Session = Depends(get_db)):
+    book = BookDetailController(db, id)
     return book.object

@@ -2,7 +2,7 @@ from src.controller.base_crud import Manager
 from src.models.models import Book
 
 
-class BookManager(Manager):
+class BookCreateController(Manager):
     model = Book
 
     def __init__(self, db, **kwargs):

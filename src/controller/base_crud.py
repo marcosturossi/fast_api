@@ -19,7 +19,7 @@ class Manager:
         return instance
 
     @classmethod
-    def get_by(cls, db: Session, id: int):
+    def get_by_id(cls, db: Session, id: int):
         """
         Used to get get some object in db by id
 
