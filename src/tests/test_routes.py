@@ -18,4 +18,5 @@ def test_detail_book():
     assert response.status_code == 200
 
 
-
+def test_create_category():
+    pass

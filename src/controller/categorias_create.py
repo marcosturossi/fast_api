@@ -1,13 +1,13 @@
-from src.models.categories import Categoria
+from src.models.categories import Category
 from sqlalchemy.orm import Session
 from .base_crud import Manager
 
 
-class CategoriaCreate(Manager):
+class CategoryCreateController(Manager):
     """
     This controller is responsable to get a book_by_id
     """
-    model = Categoria
+    model = Category
 
-    def __init__(self, db: Session, categoria_id: int):
-        self.object = self.create(db, categoria_id)
+    def __init__(self, db: Session, **kwargs):
+        self.object = self.create(db, **kwargs)

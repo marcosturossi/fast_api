@@ -3,15 +3,12 @@ from sqlalchemy.orm import relationship
 from .data_base import Base
 
 
-class Categoria(Base):
-    __tablename__ = 'categorias'
+class Category(Base):
+    __tablename__ = 'categories'
     id = Column(Integer, primary_key=True, index=True)
-    nome = Column(String(63))
+    name = Column(String(63))
 
-    book = relationship('Book', back_populates='categoria')
+    book = relationship('Book', back_populates='category')
 
     def __repr__(self):
         return f"{self.nome}"
-
-    def nome_id(self):
-        return f"{self.nome + str(self.id)}"

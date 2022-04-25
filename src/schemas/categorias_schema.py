@@ -5,17 +5,17 @@ from pydantic import BaseModel
 from .book_schema import Book
 
 
-class CategoriaBase(BaseModel):
+class CategorySchemaBase(BaseModel):
     nome: str
 
     class Config:
         orm_mode = True
 
 
-class CategoriaCreate(CategoriaBase):
+class CategorySchemaCreate(CategorySchemaBase):
     pass
 
 
-class Categoria(CategoriaBase):
+class Category(CategorySchemaBase):
     id: int
     book: List[Book] = []
