@@ -16,7 +16,7 @@ def create_book(book: BookCreate, db: Session = Depends(get_db)):
     :return a book:
     """
     book = BookCreateController(db, **book.dict())
-    return book.object
+    return book.objects
 
 
 @router.get('/book/{id}', response_model=Book)

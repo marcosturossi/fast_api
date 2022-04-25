@@ -1,5 +1,6 @@
 from src.controller.base_crud import Manager
 from src.models.books import Book
+from sqlalchemy.orm import Session
 
 
 class BookCreateController(Manager):
@@ -9,5 +10,5 @@ class BookCreateController(Manager):
     """
     model = Book
 
-    def __init__(self, db, **kwargs):
-        self.object = self.create(db, **kwargs)
+    def __init__(self, db: Session, **kwargs):
+        self.objects = self.create(db, **kwargs)
