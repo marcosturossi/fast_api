@@ -6,7 +6,7 @@ from .book_schema import Book
 
 
 class CategorySchemaBase(BaseModel):
-    nome: str
+    name: str
 
     class Config:
         orm_mode = True

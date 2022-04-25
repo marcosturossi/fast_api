@@ -8,7 +8,7 @@ client = TestClient(app)
 
 def test_create_book():
     """This teste verirfy if the book create end-point is working"""
-    response = client.post('http://127.0.0.1:8000/book/', data=json.dumps({'nome': 'Game of Thrones'}))
+    response = client.post('http://127.0.0.1:8000/book/', data=json.dumps({'name': 'Game of Thrones'}))
     assert response.status_code == 201
 
 

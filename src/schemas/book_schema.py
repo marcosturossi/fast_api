@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 
 class BookBase(BaseModel):
-    nome: str
+    name: str
     class Config:
         orm_mode = True
 

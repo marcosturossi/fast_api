@@ -1,12 +1,13 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from src.schemas.categorias_schema import CategorySchemaCreate
-from src.controller.categorias_create import CategoryCreateController
+from src.schemas.categories_schema import CategorySchemaCreate
+from src.controller.categories_create import CategoryCreateController
+from src.models.data_base import get_db
 
-categoria_router = APIRouter()
+category_router = APIRouter()
 
 
-@categoria_router.post('/category/', response_model=CategorySchemaCreate)
-async def new_category(db: Session, _category: CategorySchemaCreate):
-    category = CategoryCreateController(db, **_category.dict())
-    return category.object
+@category_router.post('/category/', response_model=CategorySchemaCreate)
+def new_category(category: CategorySchemaCreate, db: Session = Depends(get_db)):
+    categoria = CategoryCreateController(db, **category.dict())
+    return categoria.object
